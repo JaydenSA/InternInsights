@@ -1,3 +1,3 @@
 import PostCard from "./PostCard";
-
-export { PostCard }
+import Header from "./Header";
+export { PostCard, Header }
