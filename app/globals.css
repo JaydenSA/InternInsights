@@ -25,3 +25,36 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Setting up Typography Framework */ 
+.intern-text-display {
+  @apply font-bold text-[56px] leading-[64px];
+}
+.intern-text-p1 {
+  @apply font-regular text-[16px] leading-[28px];
+}
+.intern-text-p3 {
+  @apply font-regular;
+}
+
+h1 {
+  @apply font-bold text-[48px] leading-[64px];
+}
+h2 {
+  @apply font-bold text-[36px] leading-[48px];
+}
+h3 {
+  @apply font-bold text-[28px] leading-[36px];
+}
+h4 {
+  @apply font-bold text-[24px] leading-[32px];
+}
+h5 {
+  @apply font-bold text-[20px] leading-[32px];
+}
+h6 {
+  @apply font-bold text-[16px] leading-[25px];
+}
+label {
+  @apply font-medium text-[14px] leading-[20px];
+}
