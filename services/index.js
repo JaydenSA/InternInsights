@@ -13,6 +13,7 @@ export const getPosts = async () => {
               bio
               name
               id
+              slug
               photo {
                 url
               }
@@ -88,87 +89,30 @@ export const getPostDetails = async (slug) => {
   return result.post;
 };
 
-export const getSimilarPosts = async (categories, slug) => {
+export const getCategoriesDetails = async (slug) => {
   const query = gql`
-    query GetPostDetails($slug: String!, $categories: [String!]) {
-      posts(
-        where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
-        last: 3
-      ) {
-        title
-        featuredImage {
-          url
-        }
-        createdAt
-        slug
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query, { slug, categories });
-
-  return result.posts;
-};
-
-export const getAdjacentPosts = async (createdAt, slug) => {
-  const query = gql`
-    query GetAdjacentPosts($createdAt: DateTime!,$slug:String!) {
-      next:posts(
-        first: 1
-        orderBy: createdAt_ASC
-        where: {slug_not: $slug, AND: {createdAt_gte: $createdAt}}
-      ) {
-        title
-        featuredImage {
-          url
-        }
-        createdAt
-        slug
-      }
-      previous:posts(
-        first: 1
-        orderBy: createdAt_DESC
-        where: {slug_not: $slug, AND: {createdAt_lte: $createdAt}}
-      ) {
-        title
-        featuredImage {
-          url
-        }
-        createdAt
-        slug
-      }
-    }
-  `;
-
-  const result = await request(graphqlAPI, query, { slug, createdAt });
-
-  return { next: result.next[0], previous: result.previous[0] };
-};
-
-export const getCategoryPost = async (slug) => {
-  const query = gql`
-    query GetCategoryPost($slug: String!) {
-      postsConnection(where: {categories_some: {slug: $slug}}) {
+    query GetCategoriesDetails($slug : String!) {
+      categoriesConnection(where: {slug: $slug}) {
         edges {
-          cursor
           node {
-            author {
-              bio
-              name
-              id
-              photo {
+            id
+            name
+            slug
+            posts {
+              excerpt
+              slug
+              title
+              author {
+                name
+                id
+              }
+              categories {
+                name
+                slug
+              }
+              featuredImage {
                 url
               }
-            }
-            createdAt
-            slug
-            title
-            excerpt
-            featuredImage {
-              url
-            }
-            categories {
-              name
-              slug
             }
           }
         }
@@ -178,27 +122,70 @@ export const getCategoryPost = async (slug) => {
 
   const result = await request(graphqlAPI, query, { slug });
 
-  return result.postsConnection.edges;
+  return result.categoriesConnection.edges[0].node;
+};
+
+export const getAuthorDetails = async (slug) => {
+  const query = gql`
+    query GetAuthorDetails($slug : String!) {
+      authorsConnection(where: {slug: $slug}) {
+        edges {
+          node {
+            bio
+            id
+            name
+            slug
+            posts {
+              excerpt
+              featuredImage {
+                url
+              }
+              slug
+              title
+              author {
+                id
+                name
+                slug
+                bio
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.authorsConnection.edges[0].node;
 };
 
 export const getFeaturedPosts = async () => {
   const query = gql`
-    query GetCategoryPost() {
+    query MyQuery {
       posts(where: {featurePost: true}) {
         author {
           name
+          id
+          slug
           photo {
             url
           }
         }
+        title
         featuredImage {
           url
         }
-        title
-        slug
+        excerpt
         createdAt
+        slug
+        categories {
+          id
+          name
+          slug
+        }
       }
-    }   
+    }
   `;
 
   const result = await request(graphqlAPI, query);

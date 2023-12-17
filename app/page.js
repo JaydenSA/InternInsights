@@ -8,7 +8,7 @@ export default async function Home() {
 	return (
 		<main className='flex flex-col p-10 gap-10'>
 			<FeaturedPost />
-			<div className='grid place-items-center grid-cols-4 gap-10'>
+			<div className='grid place-items-center grid-cols-3 gap-10'>
 				{posts.map((post, index) => (
 					<PostCard key={index} post={post.node} />
 				))}

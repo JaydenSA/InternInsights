@@ -31,12 +31,15 @@ body {
   @apply font-bold text-[56px] leading-[64px];
 }
 .intern-text-p1 {
-  @apply font-regular text-[16px] leading-[28px];
+  @apply font-normal text-[16px] leading-[28px];
 }
 .intern-text-p3 {
-  @apply font-regular;
+  @apply font-normal;
 }
 
+a {
+  @apply cursor-pointer ;
+}
 h1 {
   @apply font-bold text-[48px] leading-[64px];
 }

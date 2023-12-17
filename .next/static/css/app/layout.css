@@ -1722,11 +1722,30 @@ html {
 .z-0 {
   z-index: 0;
 }
+.z-10 {
+  z-index: 10;
+}
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mb-8 {
   margin-bottom: 2rem;
+}
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .flex {
   display: flex;
@@ -1758,8 +1777,8 @@ html {
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -1770,11 +1789,17 @@ html {
 .justify-end {
   justify-content: flex-end;
 }
+.justify-center {
+  justify-content: center;
+}
 .gap-10 {
   gap: 2.5rem;
 }
 .gap-12 {
   gap: 3rem;
+}
+.gap-5 {
+  gap: 1.25rem;
 }
 .rounded-t-none {
   border-top-left-radius: 0px;
@@ -1810,9 +1835,24 @@ html {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.uppercase {
+  text-transform: uppercase;
+}
 .text-base-content {
   --tw-text-opacity: 1;
   color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-yellow-300 {
+  --tw-text-opacity: 1;
+  color: rgb(253 224 71 / var(--tw-text-opacity));
+}
+.text-yellow-500 {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
 }
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -1849,10 +1889,22 @@ body {
 }
 
 /* Setting up Typography Framework */ 
-.display {
+.intern-text-display {
   font-size: 56px;
   font-weight: 700;
   line-height: 64px;
+}
+.intern-text-p1 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+.intern-text-p3 {
+  font-weight: 400;
+}
+
+a {
+  cursor: pointer;
 }
 h1 {
   font-size: 48px;
@@ -1901,6 +1953,10 @@ label {
 
   .lg\:col-span-8 {
     grid-column: span 8 / span 8;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .lg\:grid-cols-12 {
