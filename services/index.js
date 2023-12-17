@@ -148,6 +148,10 @@ export const getAuthorDetails = async (slug) => {
                 slug
                 bio
               }
+              categories {
+                name
+                slug
+              }
             }
           }
         }

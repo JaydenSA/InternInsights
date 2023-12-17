@@ -5,7 +5,6 @@ import { PostCard } from '@/components';
 
 const AuthorDetails = async ({params}) => {
 	const data = await getAuthorDetails(params.slug);
-	console.log(data)
 
 	return (
 		<div className='flex flex-col gap-10 p-10'>

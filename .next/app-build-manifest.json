@@ -11,16 +11,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/posts/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/posts/[slug]/page.js"
-    ],
-    "/categories/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/categories/[slug]/page.js"
-    ],
     "/author/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
