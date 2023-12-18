@@ -1,18 +1,15 @@
-import { getPosts } from '@/services'
-import { PostCard, FeaturedPost } from '@/components'
-import Image from 'next/image'
+import { DisplayCategories, FeaturedPost, Newsletter, RecentPosts, FeaturedAuthors } from '@/components'
+import EditorsPick from '@/components/EditorsPick';
 
 export default async function Home() {
-	const posts = await getPosts();
-
 	return (
-		<main className='flex flex-col p-10 gap-10'>
+		<main className='flex flex-col lg:p-10 gap-10'>
 			<FeaturedPost />
-			<div className='grid place-items-center grid-cols-3 gap-10'>
-				{posts.map((post, index) => (
-					<PostCard key={index} post={post.node} />
-				))}
-			</div>
+			<RecentPosts />
+			<DisplayCategories />
+			<Newsletter />
+			<EditorsPick />
+			<FeaturedAuthors />
 		</main>
 	)
 }

@@ -34,17 +34,17 @@ body {
   @apply font-normal text-[16px] leading-[28px];
 }
 .intern-text-p3 {
-  @apply font-normal;
+  @apply font-normal text-[14px] leading-[20px];
 }
 
 a {
   @apply cursor-pointer ;
 }
 h1 {
-  @apply font-bold text-[48px] leading-[64px];
+  @apply  font-bold text-[32px] md:text-[48px] leading-[64px];
 }
 h2 {
-  @apply font-bold text-[36px] leading-[48px];
+  @apply font-bold text-[32px] leading-[48px];
 }
 h3 {
   @apply font-bold text-[28px] leading-[36px];

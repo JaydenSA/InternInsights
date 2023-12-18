@@ -10,7 +10,7 @@ const AuthorDetails = async ({params}) => {
 		<div className='flex flex-col gap-10 p-10'>
 			<h1>{data.name}</h1>
 
-			<section className='grid grid-cols-3 gap-10'>
+			<section className='flex flex-col gap-10'>
 				{data.posts.map((post, index) => (
 					<PostCard key={index} post={post} />
 				))}

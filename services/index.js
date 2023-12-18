@@ -40,12 +40,15 @@ export const getPosts = async () => {
   return result.postsConnection.edges;
 };
 
+
+
 export const getCategories = async () => {
   const query = gql`
     query GetGategories {
         categories {
           name
           slug
+          description
         }
     }
   `;
@@ -53,6 +56,26 @@ export const getCategories = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.categories;
+};
+
+export const getAuthor = async () => {
+  const query = gql`
+    query GetAuthor {
+        authors {
+          bio
+          name
+          id
+          slug
+          photo {
+            url
+          }
+        }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.authors;
 };
 
 export const getPostDetails = async (slug) => {
@@ -98,6 +121,7 @@ export const getCategoriesDetails = async (slug) => {
             id
             name
             slug
+            description
             posts {
               excerpt
               slug
@@ -105,6 +129,7 @@ export const getCategoriesDetails = async (slug) => {
               author {
                 name
                 id
+                slug
               }
               categories {
                 name
@@ -197,6 +222,39 @@ export const getFeaturedPosts = async () => {
   return result.posts;
 };
 
+export const getEditorsPicks = async () => {
+  const query = gql`
+    query MyQuery {
+      posts(where: {editorsPick: true}) {
+        author {
+          name
+          id
+          slug
+          photo {
+            url
+          }
+        }
+        title
+        featuredImage {
+          url
+        }
+        excerpt
+        createdAt
+        slug
+        categories {
+          id
+          name
+          slug
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
+};
+
 export const submitComment = async (obj) => {
   const result = await fetch('/api/comments', {
     method: 'POST',
@@ -229,15 +287,29 @@ export const getRecentPosts = async () => {
   const query = gql`
     query GetPostDetails() {
       posts(
-        orderBy: createdAt_ASC
-        last: 3
+        orderBy: createdAt_DESC
+        first: 4
       ) {
         title
+        excerpt
         featuredImage {
           url
         }
         createdAt
         slug
+        categories {
+          id
+          name
+          slug
+        }
+        author {
+          name
+          id
+          slug
+          photo {
+            url
+          }
+        }
       }
     }
   `;
