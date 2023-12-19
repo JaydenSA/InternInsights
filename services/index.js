@@ -160,6 +160,9 @@ export const getAuthorDetails = async (slug) => {
             id
             name
             slug
+            photo {
+              url
+            }
             posts {
               excerpt
               featuredImage {

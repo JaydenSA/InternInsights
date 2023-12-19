@@ -7,7 +7,8 @@ import RecentPosts from "./RecentPosts";
 import DisplayCategories from "./DisplayCategories";
 import Newsletter from "./Newsletter";
 import FeaturedAuthors from "./FeaturedAuthors";
+import AuthorCard from "./AuthorCard";
 
 export { 
-    PostCard, Header, FeaturedPost, Footer, RecentPosts, PostCardSmall, DisplayCategories, Newsletter, FeaturedAuthors
+    PostCard, Header, FeaturedPost, Footer, RecentPosts, PostCardSmall, DisplayCategories, Newsletter, FeaturedAuthors, AuthorCard
  }
