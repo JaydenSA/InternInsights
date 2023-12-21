@@ -1,4 +1,4 @@
-import { DisplayCategories, FeaturedPost, Newsletter, RecentPosts, FeaturedAuthors } from '@/components'
+import { DisplayCategories, FeaturedPost, Newsletter, RecentPosts, FeaturedAuthors, GuestWritter } from '@/components'
 import EditorsPick from '@/components/EditorsPick';
 
 export default async function Home() {
@@ -10,6 +10,7 @@ export default async function Home() {
 			<Newsletter />
 			<EditorsPick />
 			<FeaturedAuthors />
+			<GuestWritter />
 		</main>
 	)
 }
