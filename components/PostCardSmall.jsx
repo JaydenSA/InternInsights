@@ -8,7 +8,7 @@ const PostCardSmall = ({ post }) => {
         <p className='intern-text-p3 '>By <Link className='text-yellow-500' href={`/author/${post.author.slug}`}>{post.author.name}</Link> | {moment(post.createdAt).format('MMM DD, YYYY')}</p>
         <h4 className="line-clamp-2"><Link href={`/posts/${post.slug}`}>{post.title}</Link></h4>
         <p className='intern-text-p3 uppercase'>posted on <Link className='text-yellow-500' href={`/categories/${post.categories[0].slug}`}>{post.categories[0].name}</Link></p>
-	</div>
+	  </div>
   )
 }
 
