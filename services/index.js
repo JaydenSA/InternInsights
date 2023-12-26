@@ -125,6 +125,7 @@ export const getPostDetails = async (slug) => {
           photo {
             url
           }
+          slug
         }
         createdAt
         slug
@@ -163,6 +164,31 @@ export const getSimilarPosts = async (categories, slug) => {
   const result = await request(graphqlAPI, query, { slug, categories });
 
   return result.posts;
+};
+
+export const getPageDetails = async (slug) => {
+  const query = gql`
+    query GetCategoriesDetails($slug : String!) {
+      pagesConnection(where: {slug: $slug}) {
+        edges {
+          node {
+            content {
+              raw
+            }
+            createdAt
+            title
+            slug
+            id
+            pageInformation
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.pagesConnection.edges[0].node;
 };
 
 export const getCategoriesDetails = async (slug) => {
@@ -241,6 +267,49 @@ export const getAuthorDetails = async (slug) => {
   `;
 
   const result = await request(graphqlAPI, query, { slug });
+
+  return result.authorsConnection.edges[0].node;
+};
+
+export const getDashboardDetails = async (email) => {
+  const query = gql`
+    query GetAuthorDetails($email : String!) {
+      authorsConnection(where: {email: $email}) {
+        edges {
+          node {
+            bio
+            id
+            name
+            slug
+            email
+            photo {
+              url
+            }
+            posts {
+              excerpt
+              featuredImage {
+                url
+              }
+              slug
+              title
+              author {
+                id
+                name
+                slug
+                bio
+              }
+              categories {
+                name
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { email });
 
   return result.authorsConnection.edges[0].node;
 };

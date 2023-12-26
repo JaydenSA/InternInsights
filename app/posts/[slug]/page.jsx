@@ -4,6 +4,7 @@ import moment from 'moment'
 import { getPostDetails } from '@/services';
 import Image from 'next/image';
 import { AboutAuthor, AuthorCard, Newsletter, SimilarPosts } from '@/components';
+import Link from 'next/link';
 
 const PostDetails = async ({params}) => {
 	const data = await getPostDetails(params.slug);
@@ -55,7 +56,7 @@ const PostDetails = async ({params}) => {
 					<article className='flex gap-5'>
 						<Image src={data.author.photo.url} height={200} width={200} alt='author photo' className='h-[50px] w-[50px] rounded-full' />
 						<div>
-							<h4>{data.author.name}</h4>
+							<h4><Link href={`/author/${data.author.slug}`}>{data.author.name}</Link></h4>
 							<p>Posted on {moment(data.createdAt).format('MMM DD, YYYY')}</p>
 						</div>
 					</article>
@@ -66,8 +67,8 @@ const PostDetails = async ({params}) => {
 			<Image src={data.featuredImage.url} width={1920} height={1080} alt='Featured Image' className='w-full h-[550px] object-cover' />
 
 			{ /* Body Text for the article */ }
-			<section className='flex flex-col lg:flex-row gap-10 p-10 lg:px-96'>
-				<article className='lg:w-2/3 lg:border-r-2 border-gray-400 lg:pr-10'>
+			<section className='flex flex-col lg:flex-row gap-10 md:p-10 lg:px-72'>
+				<article className='lg:w-3/4 lg:border-r-2 border-gray-400 lg:pr-10'>
 					{data.content.raw.children.map((typeObj, index) => {
 					const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
@@ -75,7 +76,7 @@ const PostDetails = async ({params}) => {
 					})}
 				</article>
 				
-				<article className='lg:w-1/3 flex flex-col gap-10'>
+				<article className='lg:w-1/4 flex flex-col gap-10'>
 					<AboutAuthor author={data.author} className=''/>
 
 					<SimilarPosts slug={data.slug} categories={data.categories.map((category) => category.slug)} />

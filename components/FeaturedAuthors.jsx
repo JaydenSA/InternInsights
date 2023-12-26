@@ -8,8 +8,8 @@ const FeaturedAuthors = async () => {
 
     return (
         <div className='flex flex-col gap-10'>
-            <h1 className='underline text-center'>Dream Team</h1>
-            <div className='flex flex-col gap-10 px-10 py-5 lg:grid grid-cols-4'>
+            <h1 className='underline text-center'>Our Authors</h1>
+            <div className='flex flex-col md:grid md:grid-cols-2 gap-10 px-10 lg:grid-cols-4'>
                 { authorFeatured.map((author, index) => (
                     <AuthorCard author={author} index={index}/>
                 )) }

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
 /* Setting up Typography Framework */ 
 .intern-text-display {
   @apply font-bold text-[56px] leading-[64px];
@@ -17,7 +23,7 @@ a {
   @apply cursor-pointer ;
 }
 h1 {
-  @apply  font-bold text-[32px] md:text-[48px] leading-[64px];
+  @apply  font-bold text-[32px] md:text-[48px] leading-[42px] lg:leading-[64px];
 }
 h2 {
   @apply font-bold text-[32px] leading-[48px];

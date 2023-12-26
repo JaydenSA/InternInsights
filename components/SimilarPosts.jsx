@@ -14,7 +14,7 @@ const SimilarPosts = async ({ categories, slug }) => {
             {similarPosts.map((post, index) => (
                 <div className="pb-4">
                     <p className="intern-text-p1">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
-                    <h5><Link href={`/post/${post.slug}`} className="" key={index}>{post.title}</Link></h5>
+                    <h5><Link href={`/posts/${post.slug}`} className="" key={index}>{post.title}</Link></h5>
                 </div>
             ))}
         </div>
