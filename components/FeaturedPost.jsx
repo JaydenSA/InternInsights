@@ -13,7 +13,7 @@ const FeaturedPost = async () => {
     
     return (
         <div id='featuredBody' className=' relative lg:h-96 w-full'>
-            <Image src={`${postImage}`} height={300} width={300} className='absolute z-0 w-full h-full object-cover brightness-50' />
+            <Image src={`${postImage}`} height={300} width={300} className='absolute z-0 w-full h-full object-cover brightness-50' alt='Featured Article Image'/>
 
             { /* This will be the functional Dynamic content coming from the CMS for the 'Featured Content' */}
             <section className='relative p-5 md:p-10 flex flex-col justify-center h-full z-10 text-white lg:w-2/3 gap-5'>

@@ -8,7 +8,7 @@ const GuestWritter = async () => {
 
     return (
         <div id='featuredBody' className=' relative  w-full'>
-            <Image src={guestWritterBanner.featuredImage.url} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' />
+            <Image src={guestWritterBanner.featuredImage.url} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' alt={`Hiring Writters Banner with Input Box`}/>
 
             <section className='relative p-5 py-10 md:p-10 flex flex-col justify-center items-center text-center h-full z-10 text-white gap-5'>
                 <article className=''>

@@ -8,7 +8,7 @@ const Newsletter = async () => {
 
     return (
         <div id='featuredBody' className=' relative  w-full'>
-            <Image src={newsletterBanner.featuredImage.url} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' />
+            <Image src={newsletterBanner.featuredImage.url} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' alt='Newsletter Banner Image'/>
 
             { /* This will be the functional Dynamic content coming from the CMS for the 'Featured Content' */}
             <section className='relative p-5 py-10 md:p-10 flex flex-col justify-center items-center h-full z-10 text-white gap-5'>
