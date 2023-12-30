@@ -5,7 +5,7 @@ import React from 'react'
 const page = () => {
   return (
     <div className='relative flex flex-col p-5 lg:p-10 gap-5'>
-        <section className='relative p-5 md:p-10 flex flex-col lg:flex-row justify-center h-full z-10 gap-5 lg:px-52'>
+        <section className='relative md:p-10 flex flex-col lg:flex-row justify-center h-full z-10 gap-5 lg:px-52'>
             <article className='flex flex-col gap-5 bg-[#FFD050] p-5 lg:p-10 lg:w-1/2'>
 				<h6 className='uppercase'>Our Story</h6>
                 <h2>We are a team of content writers who share their learnings</h2>
@@ -31,7 +31,7 @@ const page = () => {
 			</article>
 		</section>
 
-		<section className='relative p-5 md:p-10 flex flex-col lg:flex-row justify-center h-full z-10 gap-5 lg:p-15'>
+		<section className='relative md:p-10 flex flex-col lg:flex-row justify-center h-full z-10 gap-5 lg:p-15'>
             <article className='flex flex-col gap-5 p-5 lg:p-10 lg:w-1/2'>
                 <h4>Our team of creatives</h4>
 				<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h5>
@@ -42,7 +42,7 @@ const page = () => {
             </article>
         </section>
 
-		<section className='relative p-5 md:p-10 flex flex-col lg:flex-row justify-center h-full z-10 gap-5 lg:p-15'>
+		<section className='relative md:p-10 flex flex-col-reverse lg:flex-row justify-center h-full z-10 gap-5 lg:p-15'>
 			<article className='flex gap-5 lg:w-1/2 justify-center items-center'>
 				<Image src={'https://images.unsplash.com/photo-1665686377065-08ba896d16fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} className='w-full h-96 object-cover' height={500} width={500} />
             </article>
