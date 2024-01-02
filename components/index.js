@@ -11,7 +11,8 @@ import AuthorCard from "./AuthorCard";
 import GuestWritter from "./GuestWritter";
 import SimilarPosts from "./SimilarPosts"
 import AboutAuthor from "./AboutAuthor";
+import PostForm from "./PostForm";
 
 export { 
-    PostCard, Header, FeaturedPost, Footer, RecentPosts, PostCardSmall, DisplayCategories, Newsletter, FeaturedAuthors, AuthorCard, GuestWritter, SimilarPosts, AboutAuthor
+    PostCard, Header, FeaturedPost, Footer, RecentPosts, PostCardSmall, DisplayCategories, Newsletter, FeaturedAuthors, AuthorCard, GuestWritter, SimilarPosts, AboutAuthor, PostForm
  }

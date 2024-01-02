@@ -271,49 +271,6 @@ export const getAuthorDetails = async (slug) => {
   return result.authorsConnection.edges[0].node;
 };
 
-export const getDashboardDetails = async (email) => {
-  const query = gql`
-    query GetAuthorDetails($email : String!) {
-      authorsConnection(where: {email: $email}) {
-        edges {
-          node {
-            bio
-            id
-            name
-            slug
-            email
-            photo {
-              url
-            }
-            posts {
-              excerpt
-              featuredImage {
-                url
-              }
-              slug
-              title
-              author {
-                id
-                name
-                slug
-                bio
-              }
-              categories {
-                name
-                slug
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const result = await request(graphqlAPI, query, { email });
-
-  return result.authorsConnection.edges[0].node;
-};
-
 export const getFeaturedPosts = async () => {
   const query = gql`
     query MyQuery {
@@ -378,6 +335,18 @@ export const getEditorsPicks = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.posts;
+};
+
+export const submitPost = async (obj) => {
+  const result = await fetch('/api/posts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
 };
 
 export const submitComment = async (obj) => {

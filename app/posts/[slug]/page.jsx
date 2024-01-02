@@ -1,54 +1,24 @@
 import React from 'react';
 import moment from 'moment'
 
+import { RichText } from "@graphcms/rich-text-react-renderer";
+import Head from "next/head";
+
 import { getPostDetails } from '@/services';
 import Image from 'next/image';
-import { AboutAuthor, AuthorCard, Newsletter, SimilarPosts } from '@/components';
+import { AboutAuthor, Newsletter, SimilarPosts } from '@/components';
 import Link from 'next/link';
 
 const PostDetails = async ({params}) => {
 	const data = await getPostDetails(params.slug);
-
-	const getContentFragment = (index, text, obj, type) => {
-		let modifiedText = text;
-	
-		if (obj) {
-		  if (obj.bold) {
-			modifiedText = (<b key={index}>{text}</b>);
-		  }
-	
-		  if (obj.italic) {
-			modifiedText = (<em key={index}>{text}</em>);
-		  }
-	
-		  if (obj.underline) {
-			modifiedText = (<u key={index}>{text}</u>);
-		  }
-		}
-	
-		switch (type) {
-		  case 'heading-three':
-			return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
-		  case 'paragraph':
-			return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
-		  case 'heading-four':
-			return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
-		  case 'image':
-			return (
-			  <img
-				key={index}
-				alt={obj.title}
-				height={obj.height}
-				width={obj.width}
-				src={obj.src}
-			  />
-			);
-		  default:
-			return modifiedText;
-		}
-	  };
 	
 	return (
+	<>
+		<Head>
+			<title>{data.title}</title>
+			<meta name={data.title} content={data.excerpt} />
+			<meta name='viewport' content='width=device-width, initial-scale=1' />
+      	</Head>
 		<div className='flex flex-col p-5 lg:p-10 gap-5'>
 			<section className=' relative w-full'>
 				{ /* This will be the functional Dynamic content coming from the CMS for the 'Featured Content' */}
@@ -68,12 +38,85 @@ const PostDetails = async ({params}) => {
 
 			{ /* Body Text for the article */ }
 			<section className='flex flex-col lg:flex-row gap-10 md:p-10 lg:px-72'>
-				<article className='lg:w-3/4 lg:border-r-2 border-gray-400 lg:pr-10'>
-					{data.content.raw.children.map((typeObj, index) => {
-					const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+				<article className='lg:w-3/4 lg:border-r-2 border-gray-400 lg:pr-10 flex flex-col gap-2'>
+					<RichText
+						content={data.content.raw}
+						renderers={{
+							h1: ({ children }) => <h1 className="mb-5">{children}</h1>,
+							h2: ({ children }) => <h2 className="mb-5">{children}</h2>,
+							h3: ({ children }) => <h3 className="mb-5">{children}</h3>,
+							h4: ({ children }) => <h4 className="mb-5">{children}</h4>,
+							h5: ({ children }) => <h5 className="mb-5">{children}</h5>,
 
-					return getContentFragment(index, children, typeObj, typeObj.type);
-					})}
+							p: ({ children }) => (
+								<p className='mb-5'>
+									{children}
+								</p>
+								),
+
+							bold: ({ children }) => <strong>{children}</strong>,
+							italic: ({ children }) => <em>{children}</em>,
+							underline: ({ children }) => <u>{children}</u>,
+
+							ol: ({ children }) => (
+								<ol className=' list-decimal ml-5 mb-5'>
+									{children}
+								</ol>
+							),
+							ul: ({ children }) => (
+								<ul className=' list-disc ml-5 mb-5'>
+									{children}
+								</ul>
+								),
+							li: ({ children }) => (
+								<li className='mb-2.5 last-of-type:mb-0'>
+									{children}
+								</li>
+								),
+
+							code_block: ({ children }) => {
+								return (
+									<pre className="line-numbers language-none">
+									<code>{children}</code>
+									</pre>
+								);
+							},
+
+							img: ({ src, altText, height, width }) => (
+								<Image
+								  src={src}
+								  alt={altText}
+								  height={height}
+								  width={width}
+								  objectFit="cover"
+								  className='mb-5'
+								/>
+							  ),
+
+							a: ({ children, openInNewTab, href, rel, ...rest }) => {
+								if (href.match(/^https?:\/\/|^\/\//i)) {
+									return (
+									<a
+										href={href}
+										target={openInNewTab ? '_blank' : '_self'}
+										rel={rel || 'noopener noreferrer'}
+										{...rest}
+										className='text-[#EDC14A]'
+									>
+										{children}
+									</a>
+									);
+								}
+						
+								return (
+									<Link to={href} {...rest} className='text-[#EDC14A]'>
+										{children}
+									</Link>
+								);
+							},
+
+						}}
+					/>
 				</article>
 				
 				<article className='lg:w-1/4 flex flex-col gap-10'>
@@ -85,6 +128,7 @@ const PostDetails = async ({params}) => {
 
 			<Newsletter />
 		</div>
+	</>
 	);
 };
 export default PostDetails;

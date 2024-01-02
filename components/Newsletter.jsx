@@ -7,7 +7,7 @@ const Newsletter = async () => {
     const newsletterBanner = await getBannerDetails('newsletter');
 
     return (
-        <div id='featuredBody' className=' relative  w-full'>
+        <div id='newsletter' className=' relative  w-full'>
             <Image src={newsletterBanner.featuredImage.url} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' alt='Newsletter Banner Image'/>
 
             { /* This will be the functional Dynamic content coming from the CMS for the 'Featured Content' */}

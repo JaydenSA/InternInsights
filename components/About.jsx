@@ -7,7 +7,7 @@ const About = async () => {
     const imageURL = 'https://images.unsplash.com/photo-1702234844718-5f4f77a93baa?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 
     return (
-        <div id='featuredBody' className=' relative  w-full'>
+        <div id='about' className=' relative  w-full'>
             <Image src={imageURL} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' />
 
             { /* This will be the functional Dynamic content coming from the CMS for the 'Featured Content' */}
