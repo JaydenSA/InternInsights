@@ -1,5 +1,11 @@
 🚀 InternInsights: Empowering Software Engineer Journey 🌐
 
+To-do List: 
+* Implementing comment section on the posts
+* Implementing newsletter subscription functionality
+* Able to post off the website after logging in using Firebase Login system already implemented
+* Implementing signing up to be a guest writter
+
 Welcome to InternInsights, a dynamic blog platform where our interns share their triumphs, tribulations, and transformative experiences on the road to becoming exceptional software engineers. 🚀✨
 
 📝 Features:
