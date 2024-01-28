@@ -3,7 +3,7 @@ import EditorsPick from '@/components/EditorsPick';
 
 export default async function Home() {
 	return (
-		<main className='flex flex-col lg:p-10 gap-10'>
+		<main className='flex flex-col gap-10'>
 			<FeaturedPost />
 			<RecentPosts />
 			<DisplayCategories />

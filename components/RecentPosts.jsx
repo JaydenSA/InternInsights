@@ -19,7 +19,7 @@ const RecentPosts = async () => {
                     <h4 className="line-clamp-1"><Link href={`/posts/${recentPosts[0].slug}`}>{recentPosts[0].title}</Link></h4>
                     <p className=' line-clamp-3 intern-text-p1'>{recentPosts[0].excerpt}</p>
 			        <p className='intern-text-p3 uppercase'>posted on <Link className=' text-yellow-500' href={`/categories/${recentPosts[0].categories[0].slug}`}>{recentPosts[0].categories[0].name}</Link></p>
-                    <div className="">
+                    <div className="mt-5">
                         <Link href={`/posts/${recentPosts[0].slug}`} className="bg-yellow-500 p-4 px-10 rounded-md">Read Now</Link>
                     </div>
                 </section>
