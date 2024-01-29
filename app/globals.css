@@ -2,16 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #fffff0;
 }
 
 .intern-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Bebas Neue", sans-serif;
 }
 
 /* Setting up Typography Framework */ 
@@ -26,7 +32,7 @@
 }
 
 a {
-  @apply cursor-pointer ;
+  @apply cursor-pointer;
 }
 h1 {
   @apply  font-bold text-[32px] md:text-[48px] leading-[42px] lg:leading-[64px];
