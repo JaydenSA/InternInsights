@@ -33,19 +33,17 @@ const page = () => {
                 </article>
             </section>
 
-            <section className='flex flex-col md:flex-row justify-center items-center gap-5 p-10 w-full md:w-3/4 lg:w-2/3 md:mx-auto bg-[#592EA9] md:px-16 md:py-10 text-white'>
+            <section className='flex flex-col md:flex-row justify-center items-center gap-5 p-10 w-full md:w-3/4 lg:w-2/3 md:mx-auto bg-gray-100 md:px-16 md:py-10'>
                 <article className='lg:w-1/2'>
-                    <p>Working hours</p>
-                    <div className="divider"></div> 
-                    <h5>Monday To Friday</h5>
-                    <h5>9:00 AM to 8:00 PM </h5>
+                    <h4 className='pb-3 border-b-2 border-black text-[#448820]'>Working hours</h4>
+                    <p className='pt-3'>Monday To Friday</p>
+                    <p>9:00 AM to 4:00 PM </p>
                 </article>
 
                 <article className='lg:w-1/2'>
-                    <p>Contact Us</p>
-                    <div className="divider"></div> 
-                    <h5>020 7993 2905</h5>
-                    <h5>hello@finsweet.com</h5>
+                    <h4 className='pb-3 border-b-2 border-black text-[#448820]'>Contact Us</h4>
+                    <p className='pt-3'>(+27) 60 383 2642</p>
+                    <p>contact@intern-insights.co.za</p>
                 </article>
             </section>
 
