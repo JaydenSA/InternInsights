@@ -341,7 +341,7 @@ export const submitPost = async (obj) => {
   const result = await fetch('/api/posts', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(obj),
   });
@@ -355,7 +355,7 @@ export const submitComment = async (obj) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(obj),
+    body: obj,
   });
 
   return result.json();

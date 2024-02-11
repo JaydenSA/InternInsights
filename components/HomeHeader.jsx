@@ -7,7 +7,6 @@ import { menu, close, bannerLogo } from '@/public/';
 
 const HomeHeader = () => {
 	const [toggle, setToggle] = useState(false);
-	console.log(menu)
 
 	return (
 		<div className="flex flex-col justify-center items-center">

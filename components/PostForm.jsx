@@ -1,9 +1,13 @@
+'use client'
+
 import { submitPost } from "@/services";
 import React from "react";
+import { useEffect } from "react"
+import { useState } from "react";
 
 const PostForm = () => {
-    var errorMessage = false
-    var successMessage = false
+    const [success, setSuccess] = useState(null);
+    const [error, setError] = useState(null);
 
     const handlePostSubmission = async () => {
         const customisedSlug = "Lemon Squares"
@@ -18,18 +22,15 @@ const PostForm = () => {
             content: document.getElementById('content').value,
         };
 
-        submitPost(postObject)
-            .then((res) => {
-                if (res.createPost) {
-                    successMessage = true
-                    errorMessage = false
-
-                    setTimeout(() => {
-                        errorMessage = true
-                        successMessage = false
-                    }, 3000);
-                }
-            });
+        const response = await fetch('/api/posts', {
+            method: "POST",
+            body: JSON.stringify(postObject),
+        });
+    
+        if (!response.ok)
+            setError(`Something went wrong submitting the form.`);
+        else 
+            setSuccess(true);
     };
 
     return (
@@ -53,10 +54,10 @@ const PostForm = () => {
                     <input type="file" className="file-input w-full bg-gray-100" name="featuredImage" id="featuredImage"/>
                 </div>
 
-                {errorMessage && <p className="text-xs text-red-500">All fields are mandatory</p>}
-                <div className="mx-auto">
+                {error && <p className="text-xs text-red-500">{error}</p>}
+                <div className="mx-auto flex flex-col gap-5">
                     <button type="button" onClick={handlePostSubmission} className="btn" id="submit">Submit Post</button>
-                    {successMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comment submitted for review</span>}
+                    {success && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comment submitted for review</span>}
                 </div>
 
             </form>
