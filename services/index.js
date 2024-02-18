@@ -338,12 +338,12 @@ export const getEditorsPicks = async () => {
 };
 
 export const submitPost = async (obj) => {
-  const result = await fetch('/api/posts/', {
+  const result = await fetch('/api/posts', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: obj,
+    body: JSON.stringify(obj),
   });
 
   return result.json();
