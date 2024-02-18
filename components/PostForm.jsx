@@ -1,9 +1,7 @@
 'use client'
-
-import { submitPost } from "@/services";
 import React from "react";
-import { useEffect } from "react"
 import { useState } from "react";
+import { submitPost } from "@/services";
 
 const PostForm = () => {
     const [success, setSuccess] = useState(null);
@@ -15,22 +13,23 @@ const PostForm = () => {
         const postObject = {
             title: document.getElementById('title').value,
             excerpt: document.getElementById('excerpt').value,
-            featuredImage: document.getElementById('featuredImage').files,
             slug: customisedSlug,
             categories: document.getElementById('categories').value,
             author: document.getElementById('author').value,
             content: document.getElementById('content').value,
         };
 
-        const response = await fetch('/api/posts', {
-            method: "POST",
-            body: JSON.stringify(postObject),
-        });
-    
-        if (!response.ok)
-            setError(`Something went wrong submitting the form.`);
-        else 
-            setSuccess(true);
+        submitPost(postObject)
+            .then((res) => {
+                setSuccess(true);
+                setTimeout(() => {
+                    setError(true);
+                }, 3000);
+                setTimeout(() => {
+                    setError(false);
+                    setSuccess(false);
+                }, 3000);
+            })
     };
 
     return (
@@ -50,8 +49,6 @@ const PostForm = () => {
                         <option value={'career-growth'}>Career Growth</option>
                         <option value={'job-hunting'}>Job Hunting</option>
                     </select>
-
-                    <input type="file" className="file-input w-full bg-gray-100" name="featuredImage" id="featuredImage"/>
                 </div>
 
                 {error && <p className="text-xs text-red-500">{error}</p>}
