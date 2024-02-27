@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { useAuthContext } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
-import { PostForm } from "@/components";
 
 function Page() {
     const router = useRouter()

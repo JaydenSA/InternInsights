@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { getAuthorDetails, getAuthor } from '@/services';
-import { PostCard, AuthorCard, } from '@/components';
+
 
 const AuthorDetails = async ({params}) => {
 	const data = await getAuthorDetails(params.slug);
