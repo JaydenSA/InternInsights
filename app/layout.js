@@ -17,7 +17,8 @@ export default function RootLayout({ children }) {
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3698348816476734"
         crossorigin="anonymous"></script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1772058783125351"
-        crossorigin="anonymous"></script>      
+        crossorigin="anonymous"></script> 
+        <meta name="google-site-verification" content="Xx0sK_bfwUN70ShmeoG7Mh8iX-bMreD1-6fu5gcDVpc" />     
      </head>
       <body className={inter.className}>
         <AuthContextProvider>
