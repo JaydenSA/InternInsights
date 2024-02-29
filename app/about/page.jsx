@@ -1,9 +1,29 @@
 import { FeaturedAuthors, GuestWritter } from '@/components'
 import Image from 'next/image'
 import React from 'react'
+import Head from 'next/head'
+
+export async function generateMetadata({ params }, parent) {      
+	// optionally access and extend (rather than replace) parent metadata   
+	return {
+	  title: 'About',
+	  description: 'Learn about what we are doing and what made us who we are',
+	  author: 'Jayden Oerson',
+	  openGraph: {
+		title: 'About',
+		description: 'Learn about what we are doing and what made us who we are',
+		author: 'Jayden Oerson',
+		url: 'intern-insights.vercel.app',
+		locale: 'en_US',
+		type: 'website',
+		images: ['https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
+	  },
+	}
+  }
 
 const page = () => {
   return (
+	<>
     <div className='relative flex flex-col p-5 lg:p-10 gap-5'>
         <section className='relative md:p-10 flex flex-col lg:flex-row justify-center h-full z-10 gap-5 lg:px-52'>
             <article className='flex flex-col gap-5 bg-[#FFD050] p-5 lg:p-10 lg:w-1/2'>
@@ -59,6 +79,7 @@ const page = () => {
         </section>
 
     </div>
+	</>
   )
 }
 

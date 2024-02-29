@@ -7,16 +7,33 @@ import Head from "next/head";
 import { getPageDetails } from '@/services';
 import { Newsletter } from '@/components';
 
+export async function generateMetadata({ params }, parent) {   
+	// fetch data
+	const data = await getPostDetails(params.slug);
+      
+	return {
+	  title: data.title,
+	  description: data.excerpt,
+	  keywords: data.keywords,
+	  author: data.author,
+	  openGraph: {
+		title: data.title,
+		description: data.excerpt,
+		author: data.author,
+		url: 'intern-insights.vercel.app',
+		locale: 'en_US',
+		type: 'article',
+		publishedTime: data.createdAt,
+		images: ['https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
+	  },
+	}
+  }
+
 const PagesDetails = async ({params}) => {
 	const data = await getPageDetails(params.slug);
 
 	return (
 	<>
-		<Head>
-			<title>{data.title}</title>
-			<meta name={data.title} content={data.excerpt} />
-			<meta name='viewport' content='width=device-width, initial-scale=1' />
-      	</Head>
 		<div className='flex flex-col gap-10 p-5 md:p-10'>
 			<article className=' relative p-5 md:p-10 lg:p-20 text-center text-white grid gap-5'>
 				<Image src={'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' />

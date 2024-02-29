@@ -5,11 +5,33 @@ import { getCategories, getCategoriesDetails } from '@/services';
 import { PostCard } from '@/components';
 import CategoriesCard from '@/components/CategoriesCard';
 
+export async function generateMetadata({ params }, parent) {   
+	// fetch data
+	const data = await getPostDetails(params.slug);
+   
+	return {
+	  title: data.name,
+	  description: data.description,
+	  keywords: "personal-development, software-development, career-growth, web-development",
+	  author: "Jayden Oerson",
+	  openGraph: {
+		title: data.name,
+		description: data.description,
+		author: "Jayden Oerson",
+		url: 'intern-insights.vercel.app',
+		locale: 'en_US',
+		type: 'website',
+		images: ['https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
+	  },
+	}
+  }
+
 const CategoriesDetails = async ({params}) => {
 	const data = await getCategoriesDetails(params.slug);
 	const categories = await getCategories();
 
 	return (
+		<>
 		<div className='flex flex-col gap-10 p-5 md:p-10'>
 
 			<section className=' relative p-5 md:p-10 lg:p-20 text-center text-white grid gap-5'>
@@ -32,6 +54,7 @@ const CategoriesDetails = async ({params}) => {
 				</article>
             </section>
         </div>
+		</>
 	);
 };
 export default CategoriesDetails;
