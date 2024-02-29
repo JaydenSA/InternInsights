@@ -9,34 +9,16 @@ import Image from 'next/image';
 import { AboutAuthor, Newsletter, SimilarPosts } from '@/components';
 import Link from 'next/link';
 
-export async function generateMetadata({ params }, parent) {   
-	// fetch data
-	const data = await getPostDetails(params.slug);
-   
-	const url = 'intern-insights.vercel.app/posts/' + params.slug
-   
-	return {
-	  title: data.title,
-	  description: data.description,
-	  keywords: data.keywords,
-	  author: data.author,
-	  openGraph: {
-		title: data.title,
-		description: data.description,
-		author: data.author,
-		url: url,
-		locale: 'en_US',
-		type: 'article',
-		publishedTime: data.createdAt,
-		images: [data.featuredImage.url],
-	  },
-	}
-  }
-
 const PostDetails = async ({params}) => {
 	const data = await getPostDetails(params.slug);
 	
 	return (
+	<>
+		<Head>
+			<title>{data.title}</title>
+			<meta name={data.title} content={data.excerpt} />
+			<meta name='viewport' content='width=device-width, initial-scale=1' />
+      	</Head>
 		<div className='flex flex-col p-5 lg:p-10 gap-5'>
 			<section className=' relative w-full'>
 				{ /* This will be the functional Dynamic content coming from the CMS for the 'Featured Content' */}
@@ -146,7 +128,7 @@ const PostDetails = async ({params}) => {
 
 			<Newsletter />
 		</div>
+	</>
 	);
 };
-
 export default PostDetails;

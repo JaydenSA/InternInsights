@@ -3,32 +3,12 @@ import Image from 'next/image';
 
 import { getAuthorDetails, getAuthor } from '@/services';
 
-export async function generateMetadata({ params }, parent) {   
-	// fetch data
-	const data = await getPostDetails(params.slug);
-      
-	return {
-	  title: data.name,
-	  description: data.bio,
-	  keywords: "author, web-developer, developer, writter, software-developer, blog",
-	  author: data.name,
-	  openGraph: {
-		title: data.name,
-		description: data.bio,
-		author: data.name,
-		locale: 'en_US',
-		type: 'article',
-		images: [data.photo.url],
-	  },
-	}
-  }
 
 const AuthorDetails = async ({params}) => {
 	const data = await getAuthorDetails(params.slug);
     const authorFeatured = await getAuthor();
 
 	return (
-		<>
 		<div className='flex flex-col gap-10 p-5 md:p-10'>
 			<section className=' flex flex-col md:flex-row justify-center items-center bg-gray-200 p-5 md:p-10 lg:p-10 lg:px-60 lg:py-20 mx-auto gap-5 relative'>
 				<Image src={'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} height={800} width={600} className='absolute z-0 w-full h-full object-cover brightness-50' />
@@ -54,7 +34,6 @@ const AuthorDetails = async ({params}) => {
 				</article>
 			</section>
         </div>
-		</>
 	);
 };
 
