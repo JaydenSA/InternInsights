@@ -35,6 +35,8 @@ export default function RootLayout({ children }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Intern Insights" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3698348816476734"
+     crossorigin="anonymous"></script>
      </Head>
       <body className={inter.className}>
           <HomeHeader />
