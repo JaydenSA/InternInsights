@@ -7,7 +7,7 @@ const Footer = async () => {
 
   return (
     <footer className="footer footer-center p-10 rounded">
-        <nav className="grid grid-flow-col gap-4">
+        <nav className="flex flex-col md:flex-row gap-4">
             <Link className="link link-hover" href={'/about'}>About us</Link>
             <Link className="link link-hover" href={'/contact'}>Contact</Link>
             <Link className="link link-hover" href={'/posts'}>Blog Posts</Link>
@@ -19,7 +19,7 @@ const Footer = async () => {
                 <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
             </div>
         </nav>
-        <nav className='flex gap-4'>
+        <nav className='flex flex-col md:flex-row gap-4'>
             { pageLinks.map((page) => {
                 return (
                     <Link href={`/pages/${page.slug}`} className=''>{page.title}</Link>

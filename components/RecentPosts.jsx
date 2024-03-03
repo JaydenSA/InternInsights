@@ -12,7 +12,7 @@ const RecentPosts = async () => {
     return (
         <section className='flex flex-col gap-10'>
             <h1 className='underline text-center'>Recent Posts</h1>
-            <div className='flex flex-col lg:flex-row gap-5 px-5 md:px-10 py-5 pb-0'>
+            <div className='flex flex-col lg:flex-row gap-5 px-5 md:px-10 py-5 pb-0 lg:px-40'>
                 <section className='flex flex-col gap-5 lg:w-2/3 '>
                     <figure><Image src={recentPosts[0].featuredImage.url} alt={recentPosts[0].title} className=' h-60 w-full object-cover' height={300} width={300} /></figure>
                     <p className='intern-text-p3 '>By <Link className='text-[#448820]' href={`/author/${recentPosts[0].author.slug}`}>{recentPosts[0].author.name}</Link> | {moment(recentPosts[0].createdAt).format('MMM DD, YYYY')}</p>
