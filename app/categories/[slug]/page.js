@@ -7,7 +7,7 @@ import CategoriesCard from '@/components/CategoriesCard';
 
 export async function generateMetadata({ params }, parent) {   
 	// fetch data
-	const data = await getPostDetails(params.slug);
+	const data = await getCategoriesDetails(params.slug);
    
 	return {
 	  title: data.name,

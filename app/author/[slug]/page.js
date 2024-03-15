@@ -2,10 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 
 import { getAuthorDetails, getAuthor } from '@/services';
+import { PostCard, AuthorCard } from '@/components';
 
 export async function generateMetadata({ params }, parent) {   
 	// fetch data
-	const data = await getPostDetails(params.slug);
+	const data = await getAuthorDetails(params.slug);
       
 	return {
 	  title: data.name,
