@@ -29,12 +29,12 @@ export default function RootLayout({ children }) {
         crossorigin="anonymous"></script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1772058783125351"
         crossorigin="anonymous"></script> 
-        <meta name="google-site-verification" content="Xx0sK_bfwUN70ShmeoG7Mh8iX-bMreD1-6fu5gcDVpc" />     
         <meta name="robots" content="index,follow"></meta>
         <meta name="googlebot" content="index,follow"></meta>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3698348816476734"
      crossorigin="anonymous"></script>
+     <meta name="google-site-verification" content="Ohf90W-CKZ0DTPoq5EZ6wapyTVQn4cGiwfiO5vurrq4" />
      </Head>
       <body className={inter.className}>
           <HomeHeader />
