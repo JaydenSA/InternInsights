@@ -9,7 +9,93 @@
 
 <url>
   <loc>https://intern-insights.vercel.app/</loc>
-  <lastmod>2024-02-28T09:29:47+00:00</lastmod>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/posts</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/about</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/contact</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/categories/job-hunting</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/posts/job-hunt-demystified</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/author/jayden-oerson</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/author/james-maas</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/posts/managing-work-personal-life</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/categories/pers-dev</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/posts/art-of-code-reviews</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/categories/software-development</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/posts/intern-to-pro</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/categories/career-growth</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/posts/navigating-the-software-development-landscape</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/posts/crafting-your-personal-brand</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/author/jason-mason</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://intern-insights.vercel.app/author/brandon-botha</loc>
+  <lastmod>2024-07-26T14:23:18+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 
