@@ -17,7 +17,7 @@ const Newsletter = async () => {
                     <p>{newsletterBanner.subheading}</p>
                 </article>
 
-                <input type="text" placeholder={newsletterBanner.placeholderText} class="input input-bordered w-full max-w-xs text-black" />
+                <input type="text" placeholder={newsletterBanner.placeholderText} class="input input-bordered w-full max-w-xs text-black bg-white" />
             </section>
         </div>
     )

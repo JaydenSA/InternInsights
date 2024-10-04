@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         crossorigin="anonymous"></script>
         <meta name="google-site-verification" content="Ohf90W-CKZ0DTPoq5EZ6wapyTVQn4cGiwfiO5vurrq4" />
       </Head>
-      <body className={inter.className}>
+      <body className={`${inter.className} text-gray-700`}>
           <HomeHeader />
           <div className="bg-white">
             {children}
