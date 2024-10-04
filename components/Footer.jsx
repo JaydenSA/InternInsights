@@ -6,7 +6,7 @@ const Footer = async () => {
     const pageLinks = await getPages();
 
   return (
-    <footer className="footer footer-center p-10 rounded">
+    <footer className="footer footer-center p-10 rounded bg-white">
         <nav className="flex flex-col md:flex-row gap-4">
             <Link className="link link-hover" href={'/about'}>About us</Link>
             <Link className="link link-hover" href={'/contact'}>Contact</Link>

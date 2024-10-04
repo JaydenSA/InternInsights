@@ -9,7 +9,7 @@ const HomeHeader = () => {
 	const [toggle, setToggle] = useState(false);
 
 	return (
-		<div className="flex flex-col justify-center items-center">
+		<div className="flex flex-col justify-center items-center bg-white">
 
 			<div className='flex justify-center items-center uppercase'>
 				<Link href={'/'}><Image src={bannerLogo.src} alt='banner logo' className='max-h-[150px] w-auto' height={'300'} width={'500'}/></Link>
